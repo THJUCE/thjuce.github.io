@@ -1,0 +1,5 @@
+# robots.txt for вайб-кодинг.рус
+User-agent: *
+Allow: /
+Sitemap: https://вайб-кодинг.рус/sitemap.xml
+Host: вайб-кодинг.рус
