@@ -1,0 +1,16 @@
+[Unit]
+Description=OneDash Telegram Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/onedash-bot
+EnvironmentFile=/opt/onedash-bot/.env
+ExecStart=/opt/onedash-bot/.venv/bin/python -m bot
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
