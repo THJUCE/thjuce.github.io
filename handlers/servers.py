@@ -153,7 +153,7 @@ async def confirm_reinstall(callback: CallbackQuery, state: FSMContext, app_cont
 
 @router.callback_query(F.data.startswith("reinstall:do:"))
 async def do_reinstall(callback: CallbackQuery, state: FSMContext, app_context: AppContext) -> None:
-    _, _, _, vps_id_raw, system_code = callback.data.split(":", 4)
+    _, _, vps_id_raw, system_code = callback.data.split(":", 3)
     vps_id = int(vps_id_raw)
     try:
         async with app_context.guard.lock(f"reinstall:{vps_id}"):

@@ -44,7 +44,7 @@ async def start_create_vps(callback: CallbackQuery, state: FSMContext, app_conte
 
 @router.callback_query(CreateVPSStates.choose_location, F.data.startswith("create:location:"))
 async def choose_location(callback: CallbackQuery, state: FSMContext, app_context: AppContext) -> None:
-    _, _, _, location, processor = callback.data.split(":", 4)
+    _, _, location, processor = callback.data.split(":", 3)
     tariffs_data = await get_tariffs(app_context, location=location, processor=processor)
     tariffs = tariffs_data.get("items", [])
     if not tariffs:
